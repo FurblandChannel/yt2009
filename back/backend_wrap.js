@@ -14,7 +14,7 @@ function start_yt2009() {
     ].join("")
     console.log(`yt2009 start at ${new Date().toLocaleString()}`)
     yt2009_process = child_process.exec(commands, (error, stdout, stderr) => {
-        fs.writeFileSync("./logs/" + Date.now() + ".txt", stdout + stderr)
+        console.log(stdout + stderr)
         setTimeout(() => {
             start_yt2009()
         }, 3000)
