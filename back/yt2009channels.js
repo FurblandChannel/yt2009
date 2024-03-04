@@ -14,9 +14,8 @@ const templates = require("./yt2009templates")
 const config = require("./config.json")
 const userid_cache = require("./cache_dir/userid_cache")
 const overrideBgs = require("./channel_backgrounds.json")
-
 const channel_code = fs.readFileSync("../channelpage.htm").toString();
-
+console.log(req.ip);
 let saved_channel_comments = {}
 
 let featured_channels = []
