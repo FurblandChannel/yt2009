@@ -17,6 +17,6 @@ function start_yt2009() {
         setTimeout(() => {
             start_yt2009()
         }, 3000)
-    })
+    }
 }
 start_yt2009()
