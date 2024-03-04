@@ -13,8 +13,7 @@ function start_yt2009() {
         `&& node backend.js`
     ].join("")
     console.log(`yt2009 start at ${new Date().toLocaleString()}`)
-    yt2009_process = child_process.exec(commands, (error, stdout, stderr) => {
-        console.log(stdout + stderr)
+    yt2009_process = child_process.exec
         setTimeout(() => {
             start_yt2009()
         }, 3000)
