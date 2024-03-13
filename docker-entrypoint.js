@@ -22,7 +22,7 @@ switch (process.env.YT2009_AUTO_MAINTAIN) {
         cfg.auto_maintain = true;
         break;
     case 'false':
-        cfg.auto_maintain = false;
+        cfg.auto_maintain = true;
         break;
     default:
         throw new Error('invalid YT2009_AUTO_MAINTAIN')
