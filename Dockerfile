@@ -33,5 +33,5 @@ RUN ln -s /data/config.json back/config.json && \
     echo "{\"env\": \"dev\"}" > back/config.json && \
     node post_config_setup.js
 
-CMD ["node", "backend.js"]
+CMD ["node", "backend-wrap.js"]
 ENTRYPOINT ["sh", "docker-entrypoint.sh"]
