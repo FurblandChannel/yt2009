@@ -378,6 +378,16 @@ module.exports = {
                             callback(data)
                         }
                     })
+                }).catch(e => {
+                    fs.writeFileSync(`../assets/${data.newBanner}`, "")
+                    delete data.banner;
+                    delete data.newBanner;
+                    delete data.bannerUrl;
+                    additionalFetchesCompleted++;
+                    if(additionalFetchesCompleted >= fetchesRequired) {
+                        callback(data)
+                    }
+                    return;
                 })
             }
             catch(error) {
@@ -808,6 +818,7 @@ module.exports = {
                         watch_arg = req.headers.cookie.split("alt_swf_arg=")[1]
                                                     .split(";")[0]
                     }
+                    if(!watch_arg) {watch_arg = "video_id"}
 
                     
                     let flashUrl = `${watch_url}?${watch_arg}=${video.id}`
@@ -1465,6 +1476,11 @@ module.exports = {
                         setChannelIcon()
                         markAsDone()
                     }
+                }).catch(e => {
+                    // error pulling old icon, use current
+                    fs.writeFileSync(fname, "")
+                    setChannelIcon()
+                    markAsDone()
                 })
             }
         }
@@ -1525,6 +1541,10 @@ module.exports = {
                         }
                         
                     }
+                }).catch(e => {
+                    // bg pull fail, use default
+                    fs.writeFileSync(bgfile, "")
+                    c()
                 })
             } else if(fs.existsSync(bgfile) && fs.statSync(bgfile).size > 5) {
                 // use downloaded background
@@ -1559,6 +1579,9 @@ module.exports = {
                     // doesn't exist, download current
                     downCurrent()
                 }
+            }).catch(e => {
+                // can't pull, use current
+                downCurrent()
             })
 
             // failed :( get current banner
@@ -1578,6 +1601,14 @@ module.exports = {
                             templates.banner(`${`/assets/${cId}_banner.jpg`}`)
                         )
                         getOldBg("404")
+                    })
+                }).catch(e => {
+                    fetch(data.bannerUrl.replace("googleusercontent", "ggpht"), {
+                        "headers": yt2009constants.headers
+                    }).then(r => {
+                        fs.writeFileSync(`../assets/${cId}_banner.jpg`, "")
+                        getOldBg()
+                        return;
                     })
                 })
             }
@@ -1813,7 +1844,7 @@ module.exports = {
                                     userHandle = m;
                                 }
                             })
-                        } else {
+                        } else if(r.header.c4TabbedHeaderRenderer.channelHandleText) {
                             userHandle = r.header.c4TabbedHeaderRenderer
                                           .channelHandleText.runs[0].text
                         }
