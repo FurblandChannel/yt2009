@@ -17,6 +17,7 @@ RUN npm install
 ENV YT2009_PORT=80 \
     YT2009_ENV=prod \
     YT2009_IP=yt2009.sliplane.app \
+    YT2009_TOKENS="i understand" \
     YT2009_SSL=false \
     YT2009_SSLPORT=443 \
     YT2009_SSLPATH=/yt2009/cert.crt \
