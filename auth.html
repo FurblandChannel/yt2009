@@ -1,35 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <input type="text" id="textbox">
-    <button onclick="submit();">zapisz</button><br>
-    <a href="auth_basic.html" style="margin-top:10px;font-size:10px;">(authorizing without JS?)</a>
+<title>So long, and thanks for all the fish!</title>
+<h1>So long, and thanks for all the fish!</h1>
 
-    <script>
-        function submit() {
-            document.cookie = "auth=" + document.getElementById("textbox").value + "; Path=/; expires=Fri, 31 Dec 2066 23:59:59 GMT";
-            if(document.cookie.indexOf("global_flags") == -1) {
-                // default set no_controls_fade
-                document.cookie = "watch_flags= ; Path=/; expires=Fri, 31 Dec 2066 23:59:59 GMT"
-                document.cookie = "global_flags=no_controls_fade:; Path=/; expires=Fri, 31 Dec 2066 23:59:59 GMT"
-            }
-            var redirect = "/"
-            try {
-                if(location.href.indexOf("blzr") !== -1) {
-                    redirect = "/mobile/blzr/"
-                } else if(location.href.indexOf("rtsp") !== -1) {
-                    redirect = "/mobile/"
-                }
-            }
-            catch(error) {}
-            location.href = redirect
-        }
-    </script>
-</body>
-</html>
+yt2009.sliplane.app is no longer in operation. Keeping the instance functional has been far too much of a hassle to be justifiable, and it has been down for almost a year now before I decided to properly shut it down.<br>
+There's a tiny chance it may reopen later, but don't count on it. You can find other public instances by clicking <a href="http://platform.censys.io/search?q=yt2009">here</a>.<br>
+I am working on many other projects, some of which are quite similar, and I encourage you to follow me <a href="http://mastodon.social/@GroupNebula563">on the Fediverse (Mastodon)</a> to keep up with them.<br><br>
+
+A list of all my projects can be found <a href="http://index.bluepixelcomputing.com">here</a>. Please give them a look!<br><br>
+
+For questions or comments, reach out via the Fediverse link above.<br><br>
+
+Until we meet again, remember: AI sucks, fascism sucks, and so does Big Tech. Black Lives Matter, trans rights, all that good stuff. And for one final time, thanks for watching.<br><br>
+
+<i>GroupNebula563/Furbland, April 9th, 2026</i>
